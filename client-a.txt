@@ -2,3 +2,25 @@
 # Add your pseudocode to this file below this line: #
 # ------------------------------------------------- #
 
+ BEGIN
+    SET randomNumber = GenerateRandomNumber(1, 10)
+    SET attempts = 3
+    SET guessedCorrectly = FALSE
+
+    WHILE attempts > 0 AND NOT guessedCorrectly DO
+        PRINT "Guess a number between 1 and 10:"
+        SET userGuess = GetUserInput()
+
+        IF userGuess == randomNumber THEN
+            PRINT "Congratulations! You've guessed the number!"
+            SET guessedCorrectly = TRUE
+        ELSE
+            DECREMENT attempts
+            PRINT "Wrong guess! You have attempts left: " + attempts
+        END IF
+    END WHILE
+
+    IF NOT guessedCorrectly THEN
+        PRINT "Sorry, the number was " + randomNumber + "."
+    END IF
+END

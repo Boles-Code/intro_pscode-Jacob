@@ -2,3 +2,49 @@
 # Add your pseudocode to this file below this line: #
 # ------------------------------------------------- #
 
+BEGIN
+     Define the warehouse layout as a grid
+    SET warehouseGrid = CreateWarehouseGrid(rows, columns)
+    SET customerLocation = (startRow, startColumn)
+    SET destination = (targetRow, targetColumn)
+    
+     Function to display the current location and destination
+    FUNCTION DisplayLocation(location)
+        PRINT "Current location: " + location
+        PRINT "Destination: " + destination
+    END FUNCTION
+
+     Function to move the customer
+    FUNCTION MoveCustomer(direction)
+        IF direction = "north" THEN
+            customerLocation.row -= 1
+        ELSE IF direction = "south" THEN
+            customerLocation.row += 1
+        ELSE IF direction = "east" THEN
+            customerLocation.column += 1
+        ELSE IF direction = "west" THEN
+            customerLocation.column -= 1
+        END IF
+    END FUNCTION
+
+     Function to check if the customer has reached the destination
+    FUNCTION IsAtDestination()
+        RETURN customerLocation = destination
+    END FUNCTION
+
+     Main loop for customer movement
+    WHILE NOT IsAtDestination() DO
+        DisplayLocation(customerLocation)
+        PRINT "Enter direction (north, south, east, west) to move:"
+        SET userInput = GetUserInput()
+
+         Validate user input
+        IF userInput IN ["north", "south", "east", "west"] THEN
+            MoveCustomer(userInput)
+        ELSE
+            PRINT "Invalid direction. Please enter north, south, east, or west."
+        END IF
+    END WHILE
+
+    PRINT "You have arrived at your destination!"
+END

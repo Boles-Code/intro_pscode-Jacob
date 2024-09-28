@@ -2,3 +2,19 @@
 # Add your pseudocode to this file below this line: #
 # ------------------------------------------------- #
 
+BEGIN
+     Initialize the starting number
+    SET startNumber = 2
+     Initialize the maximum number of products
+    SET maxNumber = 50
+
+     Print the header for the output
+    PRINT "Counting products for boxing packages:"
+
+     Loop through numbers from startNumber to maxNumber, counting by twos
+    FOR number FROM startNumber TO maxNumber STEP 2 DO
+        PRINT number
+    END FOR
+
+    PRINT "Total number of product packages scanned: " + (maxNumber / 2)
+END
